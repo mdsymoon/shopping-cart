@@ -65,7 +65,7 @@
 
                      <div class="col-md-4 status">
                         <h5>$<span id= "currentSubTotal">1278</span></h5>
-                        <h5>$0</h5>
+                        <h5>$<span id= "tax">0</span></h5>
                         <h5>$<span id="total">1278</span></h5>
                      </div>
                   </div>
@@ -90,6 +90,9 @@
         const subtotalValue = parseFloat(currentSubtotal);
         const totalSub= subtotalValue + 1219;
       document.getElementById("currentSubTotal").innerText=totalSub;
+
+     allTotal("total");
+
       mobileTotalPrice("mobilePrice");
       
        
@@ -104,6 +107,7 @@
         const totalSub= subtotalValue - 1219;
       document.getElementById("currentSubTotal").innerText=totalSub;
 
+      allTotal("total");
         mobileTotalPrice("mobilePrice");
        
 
@@ -124,7 +128,7 @@
         const totalSub= subtotalValue+59;
       document.getElementById("currentSubTotal").innerText=totalSub;
 
-       
+      allTotal("total");
         caseTotalPrice("casePrice");
 
      })
@@ -138,18 +142,24 @@
         const totalSub= subtotalValue - 59;
       document.getElementById("currentSubTotal").innerText=totalSub;
 
-
+      allTotal("total");
         caseTotalPrice("casePrice");
 
      
      })
 
-   //  const sub=  document.getElementById("currentSubTotal").innerText;
-   //  const subconvert = parseFloat(sub);
-   //  const totalamount = document.getElementById("total").innerText;
-   //  const totalconvert = parseFloat(total);
-   //  const end = subconvert;
-   //  document.getElementById("total").innerText=end;
+     function allTotal(id){
+      const sub=  document.getElementById("currentSubTotal").innerText;
+    const subconvert = parseFloat(sub);
+    const tax = document.getElementById("tax").innerText;
+    const taxvalue = parseFloat(tax);
+    const totalamount = document.getElementById(id).innerText;
+    const   totalconvert = parseFloat(totalamount);
+   
+    document.getElementById(id).innerText= subconvert + taxvalue;
+     }
+
+    
 
 
 
